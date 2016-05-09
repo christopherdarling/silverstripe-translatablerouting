@@ -85,6 +85,7 @@ class MultilingualModelAsController extends ModelAsController {
             $response=$controller->handleRequest($request, $model);
             
             $this->popCurrent();
+            $this->extend('handleRequest_updateresponse', $response);
             return $response;
         }
         
@@ -93,6 +94,7 @@ class MultilingualModelAsController extends ModelAsController {
         $response=parent::handleRequest($request, $model);
         
         $this->popCurrent();
+        $this->extend('handleRequest_updateresponse', $response);
         return $response;
     }
     
