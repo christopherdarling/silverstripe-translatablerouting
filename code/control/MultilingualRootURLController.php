@@ -68,6 +68,9 @@ class MultilingualRootURLController extends RootURLController {
                 $locale=i18n::get_locale_from_lang($language);
             }
             
+
+            $this->extend('handleRequest_updatelocale', $locale);
+
             if(in_array($locale, Translatable::get_allowed_locales())) {
                 Cookie::set('language', $language);
                 

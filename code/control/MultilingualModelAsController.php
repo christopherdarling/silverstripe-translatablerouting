@@ -59,6 +59,9 @@ class MultilingualModelAsController extends ModelAsController {
             $locale=i18n::get_locale_from_lang($request->param('Language'));
         }
         
+
+        $this->extend('handleRequest_updatelocale', $locale);
+
         if(in_array($locale, Translatable::get_allowed_locales())) {
             //Set the current locale and remember it
             Cookie::set('language', $request->param('Language'));
